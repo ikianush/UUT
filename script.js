@@ -11,6 +11,9 @@ function initializeApp() {
     // Add keyboard navigation
     addKeyboardNavigation();
     
+    // Initialize mobile schedule
+    initializeMobileSchedule();
+    
     console.log('✅ سیستم مدیریت دروس با موفقیت بارگذاری شد');
 }
 
@@ -53,9 +56,16 @@ function addKeyboardNavigation() {
     });
 }
 
-// Simple notification system
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
+function initializeMobileSchedule() {
+    // Simple mobile optimization - just ensure proper scrolling
+    const scheduleContainer = document.querySelector('.schedule-container');
+    if (scheduleContainer) {
+        scheduleContainer.style.overflowX = 'auto';
+        scheduleContainer.style.webkitOverflowScrolling = 'touch';
+    }
+}
+
+function showNotification(message, type = 'info') {   const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
     notification.style.cssText = `
@@ -82,16 +92,16 @@ function showNotification(message, type = 'info') {
 // Course data for reference
 const courseData = {
     totalUnits: 23,
-    totalCourses: 9,
+    totalCourses: 8,
     courses: [
         {
-            title: 'مهندسی نرم‌افزار ۱',
+            title: 'مهندسی نرم‌افزار ۲',
             code: '۲۰۴۱۱۲۲',
             units: 3,
             group: 442,
-            schedule: 'چهارشنبه: ۱۶:۰۰-۱۸:۰۰',
-            classroom: '۱۰۱',
-            instructor: 'لیلا شریفی',
+            schedule: 'سه‌شنبه: ۱۶:۰۰-۱۸:۰۰، چهارشنبه: ۱۶:۰۰-۱۸:۰۰',
+            classroom: '۲۰۵',
+            instructor: 'دکتر احمدی',
             status: 'تایید شده'
         },
         {
@@ -100,6 +110,8 @@ const courseData = {
             units: 3,
             group: 1,
             schedule: 'شنبه: ۱۶:۰۰-۱۷:۳۰، چهارشنبه: ۱۱:۰۰-۱۳:۰۰',
+            classroom: '۳۰۲',
+            instructor: 'دکتر رضایی',
             status: 'تایید شده'
         },
         {
@@ -108,6 +120,8 @@ const courseData = {
             units: 1,
             group: 1,
             schedule: 'یکشنبه: ۱۳:۰۰-۱۴:۰۰',
+            classroom: 'آزمایشگاه ۱',
+            instructor: 'مهندس کریمی',
             status: 'تایید شده'
         },
         {
@@ -116,6 +130,8 @@ const courseData = {
             units: 3,
             group: 1,
             schedule: 'یکشنبه: ۱۴:۰۰-۱۶:۰۰، سه‌شنبه: ۱۴:۰۰-۱۶:۰۰',
+            classroom: '۲۰۳',
+            instructor: 'دکتر محمدی',
             status: 'تایید شده'
         },
         {
@@ -123,7 +139,9 @@ const courseData = {
             code: '۱۱۳۶۸',
             units: 3,
             group: 1,
-            schedule: 'یکشنبه: ۱۶:۰۰-۱۷:۳۰، سه‌شنبه: ۱۶:۰۰-۱۷:۳۰',
+            schedule: 'یکشنبه: ۱۶:۰۰-۱۸:۰۰، سه‌شنبه: ۱۶:۰۰-۱۸:۰۰',
+            classroom: '۱۰۴',
+            instructor: 'دکتر حسینی',
             status: 'تایید شده'
         },
         {
@@ -132,6 +150,8 @@ const courseData = {
             units: 2,
             group: 2,
             schedule: 'دوشنبه: ۸:۰۰-۹:۳۰',
+            classroom: '۱۰۶',
+            instructor: 'دکتر نوری',
             status: 'تایید شده'
         },
         {
@@ -140,6 +160,8 @@ const courseData = {
             units: 2,
             group: 3,
             schedule: 'سه‌شنبه: ۹:۳۰-۱۱:۰۰',
+            classroom: '۱۰۷',
+            instructor: 'دکتر زارعی',
             status: 'تایید شده'
         },
         {
@@ -148,22 +170,11 @@ const courseData = {
             units: 3,
             group: 1,
             schedule: 'شنبه: ۹:۳۰-۱۱:۰۰، چهارشنبه: ۹:۳۰-۱۱:۰۰',
+            classroom: '۲۰۱',
+            instructor: 'دکتر علوی',
             status: 'تایید شده'
-        },
-        {
-            title: 'مهندسی نرم‌افزار ۲',
-            code: 'GUEST001',
-            units: 3,
-            group: 'مهمان',
-            schedule: 'تعیین نشده',
-            university: 'دانشگاه نازلو',
-            status: 'تایید شده',
-            isGuest: true
         }
     ]
 };
 
-// Show welcome message
-setTimeout(() => {
-    showNotification('سیستم مدیریت دروس ترم ۱۴۰۱ آماده است', 'success');
-}, 1000);
+// Welcome message removed for better user experience
