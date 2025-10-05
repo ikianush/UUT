@@ -92,56 +92,26 @@ function showNotification(message, type = 'info') {   const notification = docum
 // Course data for reference
 const courseData = {
     totalUnits: 23,
-    totalCourses: 8,
+    totalCourses: 9,
     courses: [
         {
-            title: 'مهندسی نرم‌افزار ۲',
+            title: 'آزمایشگاه سیستم‌های عامل',
+            code: '۱۱۲۲۸',
+            units: 1,
+            group: 1,
+            schedule: 'یکشنبه: ۱۳:۰۰-۱۴:۰۰',
+            classroom: 'سایت',
+            instructor: 'امین گلزاری',
+            status: 'تایید شده'
+        },
+        {
+            title: 'مهندسی نرم‌افزار ۱',
             code: '۲۰۴۱۱۲۲',
             units: 3,
             group: 442,
             schedule: 'سه‌شنبه: ۱۶:۰۰-۱۸:۰۰، چهارشنبه: ۱۶:۰۰-۱۸:۰۰',
-            classroom: '۲۰۵',
-            instructor: 'دکتر احمدی',
-            status: 'تایید شده'
-        },
-        {
-            title: 'طراحی الگوریتم‌ها',
-            code: '۱۱۳۲۱',
-            units: 3,
-            group: 1,
-            schedule: 'شنبه: ۱۶:۰۰-۱۷:۳۰، چهارشنبه: ۱۱:۰۰-۱۳:۰۰',
-            classroom: '۳۰۲',
-            instructor: 'دکتر رضایی',
-            status: 'تایید شده'
-        },
-        {
-            title: 'آزمایشگاه سیستم‌های عامل',
-            code: '۱۱۳۲۸',
-            units: 1,
-            group: 1,
-            schedule: 'یکشنبه: ۱۳:۰۰-۱۴:۰۰',
-            classroom: 'آزمایشگاه ۱',
-            instructor: 'مهندس کریمی',
-            status: 'تایید شده'
-        },
-        {
-            title: 'بازیابی اطلاعات',
-            code: '۱۱۲۱۰۸',
-            units: 3,
-            group: 1,
-            schedule: 'یکشنبه: ۱۴:۰۰-۱۶:۰۰، سه‌شنبه: ۱۴:۰۰-۱۶:۰۰',
-            classroom: '۲۰۳',
-            instructor: 'دکتر محمدی',
-            status: 'تایید شده'
-        },
-        {
-            title: 'مبانی رایانش ابری',
-            code: '۱۱۳۶۸',
-            units: 3,
-            group: 1,
-            schedule: 'یکشنبه: ۱۶:۰۰-۱۸:۰۰، سه‌شنبه: ۱۶:۰۰-۱۸:۰۰',
-            classroom: '۱۰۴',
-            instructor: 'دکتر حسینی',
+            classroom: '۱۰۱',
+            instructor: 'لیلا شریفی',
             status: 'تایید شده'
         },
         {
@@ -150,28 +120,58 @@ const courseData = {
             units: 2,
             group: 2,
             schedule: 'دوشنبه: ۸:۰۰-۹:۳۰',
-            classroom: '۱۰۶',
-            instructor: 'دکتر نوری',
+            classroom: 'A208',
+            instructor: 'حسین آقایارلو',
             status: 'تایید شده'
         },
         {
             title: 'دانش خانواده',
-            code: '۴۴۱۳',
+            code: '۴۴۲۳',
             units: 2,
             group: 3,
             schedule: 'سه‌شنبه: ۹:۳۰-۱۱:۰۰',
-            classroom: '۱۰۷',
-            instructor: 'دکتر زارعی',
+            classroom: 'A208',
+            instructor: 'حسین آقایارلو',
             status: 'تایید شده'
         },
         {
-            title: 'مهندسی نرم‌افزار ۱',
-            code: '۱۱۶۱',
+            title: 'مهندسی نرم‌افزار ۲',
+            code: '۱۱۲۶۲',
             units: 3,
             group: 1,
             schedule: 'شنبه: ۹:۳۰-۱۱:۰۰، چهارشنبه: ۹:۳۰-۱۱:۰۰',
-            classroom: '۲۰۱',
-            instructor: 'دکتر علوی',
+            classroom: 'A117',
+            instructor: 'پرویز رشیدی',
+            status: 'تایید شده'
+        },
+        {
+            title: 'طراحی الگوریتم‌ها',
+            code: '۱۱۲۲۱',
+            units: 3,
+            group: 1,
+            schedule: 'شنبه: ۱۶:۰۰-۱۷:۳۰، چهارشنبه: ۱۱:۰۰-۱۳:۰۰',
+            classroom: 'A117',
+            instructor: 'امیدرضا بلوکی',
+            status: 'تایید شده'
+        },
+        {
+            title: 'مبانی رایانش ابری',
+            code: '۱۱۲۶۸',
+            units: 3,
+            group: 1,
+            schedule: 'یکشنبه: ۱۶:۰۰-۱۷:۳۰، سه‌شنبه: ۱۶:۰۰-۱۷:۳۰',
+            classroom: 'A210',
+            instructor: 'سامان تاج بخش',
+            status: 'تایید شده'
+        },
+        {
+            title: 'بازیابی اطلاعات',
+            code: '۱۱۲۱۰۸',
+            units: 3,
+            group: 1,
+            schedule: 'یکشنبه: ۱۴:۰۰-۱۶:۰۰، سه‌شنبه: ۱۴:۰۰-۱۶:۰۰',
+            classroom: 'A210',
+            instructor: 'امین گلزاری',
             status: 'تایید شده'
         }
     ]
